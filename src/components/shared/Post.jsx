@@ -1,4 +1,5 @@
 import React from "react"
+
 import { 
   Segment, 
   Item, 
@@ -36,7 +37,7 @@ export default function Post({post}) {
 
       <Segment secondary>
         <List horizontal>
-          {post.like.map(user => <LikeList key={user.id} user={user} />)}
+          {post.like && post.like.map(user => <LikeList key={user.id} user={user} />)}
         </List>
       </Segment>
 

@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import cuid from "cuid"
+
 import { Grid, Button } from "semantic-ui-react"
 
 import PostList from "./PostList"
@@ -61,6 +63,12 @@ export default function Home() {
 
   const handleClick = () => setIsOpen(!isOpen)
 
+  const handleCreatePost = (newPost) => {
+    newPost.id = cuid()
+    newPost.hostPhotoURL = "https://randomuser.me/api/portraits/men/20.jpg"
+    setPosts([...posts, newPost])
+  }
+
   return (
     <Grid>
       <Grid.Column width={10}>
@@ -68,8 +76,16 @@ export default function Home() {
       </Grid.Column>
 
       <Grid.Column width={6}>
-        <Button style={{marginTop: 40}} positive onClick={handleClick}>Create post</Button>
-        {isOpen && <CreatePostForm closeForm={handleClick} />}
+        <Button 
+          style={{marginTop: 40}} 
+          positive onClick={handleClick}
+        >Create post</Button>
+        {isOpen && (
+          <CreatePostForm 
+            handleCreatePost={handleCreatePost} 
+            closeForm={handleClick} 
+          />
+        )}
       </Grid.Column>  
     </Grid>
   )
