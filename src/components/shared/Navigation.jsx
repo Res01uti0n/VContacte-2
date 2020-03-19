@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
+import { NavLink, Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 import { 
   Menu,
@@ -6,25 +8,40 @@ import {
   Button 
 } from "semantic-ui-react"
 
+import SignedOut from "./SignedOut"
+import SignedIn from "./SignedIn"
+
 export default function Navigation() {
+  const [auth, setAuth] = useState(false)
+  const history = useHistory()
+
+  const handleSignIn = () => setAuth(true)
+
+  const handleSignOut = () => {
+    setAuth(false)
+    history.push("/")
+  }
+
   return (
     <div>
       <Menu inverted fixed="top">
         <Container>
-          <Menu.Item header>
+          <Menu.Item as={NavLink} exact to="/" header>
             Vcontacte
           </Menu.Item>
 
-          <Menu.Item name="Post" />
+          <Menu.Item as={NavLink} to="/posts" name="Post" />
+          <Menu.Item as={NavLink} to="/people" name="People" />
 
           <Menu.Item>
-            <Button floated="right" positive inverted content="Create Post" />
+            <Button as={Link} to="/create-post" floated="right" positive inverted content="Create Post" />
           </Menu.Item>
 
-          <Menu.Item position="right">
-            <Button basic inverted content="Login" />
-            <Button basic inverted content="Register" style={{marginLeft: 10}} />
-          </Menu.Item>
+          {auth ? (
+            <SignedIn handleSignOut={handleSignOut} />
+          ) : (
+            <SignedOut handleSignIn={handleSignIn} />
+          )}
         </Container>
       </Menu>     
     </div>
