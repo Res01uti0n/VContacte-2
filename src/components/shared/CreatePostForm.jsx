@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import { Segment, Form, Button } from "semantic-ui-react"
 
-export default function CreatePostForm({closeForm, handleCreatePost}) {
+export default function CreatePostForm({closeForm, handleCreatePost, selectedPost, handleUpdatePost}) {
   const [values, setValues] = useState({
     title: "",
     date: "",
@@ -13,12 +13,23 @@ export default function CreatePostForm({closeForm, handleCreatePost}) {
 
   const handleFormSubmit = evt => {
     evt.preventDefault()
-    handleCreatePost(values)
+
+    if (values.id) {
+      handleUpdatePost(values)
+    } else {
+      handleCreatePost(values)
+    }
   }
 
   const handleInputChange = evt => {
     setValues({...values, [evt.target.name]: evt.target.value})
   }
+
+  useEffect(() => {
+    if (selectedPost !== null) {
+      setValues({...selectedPost})
+    }
+  }, [])
 
   return (
     <div>

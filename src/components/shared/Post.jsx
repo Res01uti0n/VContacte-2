@@ -10,7 +10,7 @@ import {
 
 import LikeList from "./LikeList"
 
-export default function Post({post}) {
+export default function Post({post, handleSelectPost, handleDeletePost}) {
   return (
     <Segment.Group>
       <Segment>
@@ -42,7 +42,21 @@ export default function Post({post}) {
       </Segment>
 
       <Segment clearing>
-        <Button as="a" color="teal" floated="right" content="View"></Button>
+        <Button
+          onClick={() => handleDeletePost(post.id)}
+          as="a"
+          color="red"
+          floated="right"
+          content="Delete"
+        />
+
+        <Button 
+          onClick={() => handleSelectPost(post)} 
+          as="a" 
+          color="teal" 
+          floated="right" 
+          content="View"
+        />
       </Segment>
     </Segment.Group>
   )
