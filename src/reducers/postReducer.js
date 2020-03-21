@@ -11,7 +11,7 @@ const intialState = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     city: "London, UK",
     venue: "Tower of London, St Katharine's & Wapping, London",
-    hostedBy: "Bobe",
+    postedBy: "Bobe",
     hostPhotoURL: "https://randomuser.me/api/portraits/men/24.jpg",
     like: [
       {
@@ -35,7 +35,7 @@ const intialState = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin ligula eu leo tincidunt, quis scelerisque magna dapibus. Sed eget ipsum vel arcu vehicula ullamcorper.",
     city: "London, UK",
     venue: "Punch & Judy, Henrietta Street, London, UK",
-    hostedBy: "Tom",
+    postedBy: "Tom",
     hostPhotoURL: "https://randomuser.me/api/portraits/men/12.jpg",
     like: [
       {
@@ -61,7 +61,7 @@ const updatePost = (state, payload) => {
 }
 
 const deletePost = (state, payload) => {
-  return [...state.filter(post => post.id !== payload.post.id)]
+  return [...state.filter(post => post.id !== payload.postd)]
 }
 
 export default createReducer(intialState, {

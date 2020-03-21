@@ -19,12 +19,12 @@ export default function MainRouter() {
         <Route exact path="/(.+)" render={() => (
           <>
             <Navigation />
-            <Route path="/posts" component={Home} />
+            <Route exact path="/posts" component={Home} />
             <Route path="/posts/:id" component={PostDetail} />
             <Route path="/people" component={PeopleList} />
             <Route path="/profile/:id" component={UserDetail} />
             <Route path="/settings" component={Settings} />
-            <Route path="/create-post" component={CreatePostForm} />
+            <Route path={["/create-post", "/manage/:id"]} component={CreatePostForm} />
           </>
         )} />
       </Switch>

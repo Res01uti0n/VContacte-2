@@ -1,23 +1,54 @@
 import React, { useState, useEffect } from "react"
+import { connect } from "react-redux"
+import { useHistory } from "react-router-dom"
+import cuid from "cuid"
 
 import { Segment, Form, Button } from "semantic-ui-react"
 
-export default function CreatePostForm({closeForm, handleCreatePost, selectedPost, handleUpdatePost}) {
-  const [values, setValues] = useState({
+import { createPost, updatePost } from "../../actions/postActions"
+
+const mapState = (state, ownProps) => {
+  const postId = ownProps.match.params.id
+  let post = {
     title: "",
     date: "",
     city: "",
     venue: "",
     postedBy: ""
-  })
+  }
+
+  if (postId && state.postReducer.length > 0) {
+    post = state.postReducer.filter( post => post.id === postId)[0]
+  }
+
+  return {
+    post
+  }
+}
+
+const actions = {
+  createPost,
+  updatePost
+}
+
+const CreatePostForm = ({selectedPost, post}) => {
+  const [values, setValues] = useState(post)
+  const history = useHistory()
 
   const handleFormSubmit = evt => {
     evt.preventDefault()
 
     if (values.id) {
-      handleUpdatePost(values)
+      updatePost(values)
+      history.push(`/posts/${values.id}`)
     } else {
-      handleCreatePost(values)
+      const newPost = {
+        ...values,
+        id: cuid(),
+        hostPhotoURL: "https://randomuser.me/api/portraits/men/20.jpg"
+      }
+      createPost(newPost)
+      history.push(`/posts/${newPost.id}`)
     }
   }
 
@@ -98,7 +129,7 @@ export default function CreatePostForm({closeForm, handleCreatePost, selectedPos
             Create
           </Button>
 
-          <Button onClick={closeForm} type="button">
+          <Button onClick={history.goBack} type="button">
             Cancel
           </Button>
         </Form>
@@ -106,3 +137,5 @@ export default function CreatePostForm({closeForm, handleCreatePost, selectedPos
     </div>
   )
 }
+
+export default connect(mapState, actions)(CreatePostForm)

@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 import { 
   Segment, 
@@ -10,7 +11,7 @@ import {
 
 import LikeList from "./LikeList"
 
-export default function Post({post, handleSelectPost, handleDeletePost}) {
+export default function Post({post, handleDeletePost}) {
   return (
     <Segment.Group>
       <Segment>
@@ -20,7 +21,7 @@ export default function Post({post, handleSelectPost, handleDeletePost}) {
           <Item.Content>
             <Item.Header>{post.title}</Item.Header>
             <Item.Description>
-              Posted by {post.hostedBy}
+              Posted by {post.postedBy}
             </Item.Description>
           </Item.Content>
         </Item>
@@ -51,8 +52,8 @@ export default function Post({post, handleSelectPost, handleDeletePost}) {
         />
 
         <Button 
-          onClick={() => handleSelectPost(post)} 
-          as="a" 
+          as={Link} 
+          to={`/posts/${post.id}`}
           color="teal" 
           floated="right" 
           content="View"

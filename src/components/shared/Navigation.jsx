@@ -30,7 +30,7 @@ export default function Navigation() {
             Vcontacte
           </Menu.Item>
 
-          <Menu.Item as={NavLink} to="/posts" name="Post" />
+          <Menu.Item as={NavLink} exact to="/posts" name="Post" />
           <Menu.Item as={NavLink} to="/people" name="People" />
 
           <Menu.Item>

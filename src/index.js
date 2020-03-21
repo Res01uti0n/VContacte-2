@@ -6,6 +6,7 @@ import { Provider } from "react-redux"
 import App from "./components/shared/App"
 import * as serviceWorker from "./serviceWorker"
 import { storeConfig } from "./store/storeConfig"
+import ScrollToTop from "./utils/ScrollToTop"
 
 const store = storeConfig()
 
@@ -13,7 +14,9 @@ const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </BrowserRouter>
     </Provider>, 
     document.getElementById("root"))
