@@ -6,13 +6,13 @@ import { Grid } from "semantic-ui-react"
 import PostList from "./PostList"
 import { deletePost } from "../../actions/postActions"
 
-const mapState = state => ({ posts: state.postReducer})
+const mapState = state => ({ posts: state.posts})
 
 const actions = {
   deletePost,
 }
 
-const Home = ({posts, deletePost, updatePost, createPost}) => {
+const Home = ({posts, deletePost}) => {
   const handleDeletePost = id => deletePost(id)
   
   return (

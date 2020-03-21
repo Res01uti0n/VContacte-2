@@ -61,7 +61,7 @@ const updatePost = (state, payload) => {
 }
 
 const deletePost = (state, payload) => {
-  return [...state.filter(post => post.id !== payload.postd)]
+  return [...state.filter(post => post.id !== payload.postId)]
 }
 
 export default createReducer(intialState, {

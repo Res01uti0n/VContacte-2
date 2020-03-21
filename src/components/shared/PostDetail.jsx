@@ -37,8 +37,8 @@ const mapState = (state, ownProps) => {
   const postId = ownProps.match.params.id
   let post = {}
 
-  if (postId && state.postReducer.length > 0) {
-    post = state.postReducer.filter(post => post.id === postId)[0]
+  if (postId && state.posts.length > 0) {
+    post = state.posts.filter(post => post.id === postId)[0]
   }
 
   return { post }

@@ -1,5 +1,6 @@
 import React from "react"
 import { Switch, Route } from  "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 import StartPage from "./components/shared/StartPage"
 import Home from "./components/shared/Home"
@@ -12,9 +13,11 @@ import Navigation from "./components/shared/Navigation"
 
 
 export default function MainRouter() {
+  const location = useLocation()
+
   return (
     <div>
-      <Switch>
+      <Switch key={location.id}>
         <Route exact path="/" component={StartPage}  />
         <Route exact path="/(.+)" render={() => (
           <>
