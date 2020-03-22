@@ -7,8 +7,10 @@ import App from "./components/shared/App"
 import * as serviceWorker from "./serviceWorker"
 import { storeConfig } from "./store/storeConfig"
 import ScrollToTop from "./utils/ScrollToTop"
+import { loadPosts } from "./actions/postActions"
 
 const store = storeConfig()
+store.dispatch(loadPosts())
 
 const render = () => {
   ReactDOM.render(

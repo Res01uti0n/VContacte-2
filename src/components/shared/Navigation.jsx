@@ -44,11 +44,15 @@ const Navigation = ({openModal, auth, signOut}) => {
           </Menu.Item>
 
           <Menu.Item as={NavLink} exact to="/posts" name="Post" />
-          <Menu.Item as={NavLink} to="/people" name="People" />
+          {auth.auth && (
+            <>
+              <Menu.Item as={NavLink} to="/people" name="People" />
 
-          <Menu.Item>
-            <Button as={Link} to="/create-post" floated="right" positive inverted content="Create Post" />
-          </Menu.Item>
+              <Menu.Item>
+                <Button as={Link} to="/create-post" floated="right" positive inverted content="Create Post" />
+              </Menu.Item>
+            </>
+          )}
 
           {auth.auth ? (
             <SignedIn handleSignOut={handleSignOut} currentUser={auth.currentUser} />

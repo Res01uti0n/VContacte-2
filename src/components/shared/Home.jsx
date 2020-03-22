@@ -5,15 +5,21 @@ import { Grid } from "semantic-ui-react"
 
 import PostList from "./PostList"
 import { deletePost } from "../../actions/postActions"
+import Loading from "./Loading"
 
-const mapState = state => ({ posts: state.posts})
+const mapState = state => ({ 
+  posts: state.posts,
+  loading: state.async.loading
+})
 
 const actions = {
   deletePost,
 }
 
-const Home = ({posts, deletePost}) => {
+const Home = ({posts, deletePost, loading}) => {
   const handleDeletePost = id => deletePost(id)
+
+  if (loading) return <Loading />
   
   return (
     <Grid>
