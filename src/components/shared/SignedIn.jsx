@@ -3,12 +3,12 @@ import { Link } from "react-router-dom"
 
 import { Menu, Image, Dropdown } from "semantic-ui-react"
 
-export default function SignedIn({handleSignOut}) {
+export default function SignedIn({handleSignOut, currentUser}) {
   return (
     <Menu.Item>
       <Image spaced="right" avatar src="" />
 
-      <Dropdown pointing="top left" text="User">
+      <Dropdown pointing="top left" text={currentUser}>
         <Dropdown.Menu>
           <Dropdown.Item text="Create post" icon="plus"/>
           <Dropdown.Item text="My posts" icon="calendar" />

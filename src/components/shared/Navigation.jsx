@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { NavLink, Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { connect } from "react-redux"
 
 import { 
   Menu,
@@ -10,15 +11,27 @@ import {
 
 import SignedOut from "./SignedOut"
 import SignedIn from "./SignedIn"
+import { openModal } from "../../actions/modalActions"
+import { signOut } from "../../actions/authActions"
 
-export default function Navigation() {
-  const [auth, setAuth] = useState(false)
+const mapState = state => ({
+  auth: state.auth
+})
+
+const actions = {
+  openModal,
+  signOut
+}
+
+const Navigation = ({openModal, auth, signOut}) => {
   const history = useHistory()
 
-  const handleSignIn = () => setAuth(true)
+  const handleSignIn = () => openModal("LoginModal")
+
+  const handleRegister = () => openModal("RegisterModal")
 
   const handleSignOut = () => {
-    setAuth(false)
+    signOut()
     history.push("/")
   }
 
@@ -37,13 +50,15 @@ export default function Navigation() {
             <Button as={Link} to="/create-post" floated="right" positive inverted content="Create Post" />
           </Menu.Item>
 
-          {auth ? (
-            <SignedIn handleSignOut={handleSignOut} />
+          {auth.auth ? (
+            <SignedIn handleSignOut={handleSignOut} currentUser={auth.currentUser} />
           ) : (
-            <SignedOut handleSignIn={handleSignIn} />
+            <SignedOut register={handleRegister} handleSignIn={handleSignIn} />
           )}
         </Container>
       </Menu>     
     </div>
   )
 }
+
+export default connect(mapState, actions)(Navigation)
