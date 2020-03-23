@@ -12,18 +12,18 @@ import {
 import SignedOut from "./SignedOut"
 import SignedIn from "./SignedIn"
 import { openModal } from "../../actions/modalActions"
-import { signOut } from "../../actions/authActions"
+import { withFirebase } from "react-redux-firebase"
 
 const mapState = state => ({
-  auth: state.auth
+  auth: state.firebase.auth,
+  profile: state.firebase.profile
 })
 
 const actions = {
   openModal,
-  signOut
 }
 
-const Navigation = ({openModal, auth, signOut}) => {
+const Navigation = ({openModal, auth, firebase, profile}) => {
   const history = useHistory()
 
   const handleSignIn = () => openModal("LoginModal")
@@ -31,9 +31,11 @@ const Navigation = ({openModal, auth, signOut}) => {
   const handleRegister = () => openModal("RegisterModal")
 
   const handleSignOut = () => {
-    signOut()
+    firebase.logout()
     history.push("/")
   }
+
+  const isAuth = auth.isLoaded && !auth.isEmpty
 
   return (
     <div>
@@ -44,7 +46,7 @@ const Navigation = ({openModal, auth, signOut}) => {
           </Menu.Item>
 
           <Menu.Item as={NavLink} exact to="/posts" name="Post" />
-          {auth.auth && (
+          {isAuth && (
             <>
               <Menu.Item as={NavLink} to="/people" name="People" />
 
@@ -54,8 +56,8 @@ const Navigation = ({openModal, auth, signOut}) => {
             </>
           )}
 
-          {auth.auth ? (
-            <SignedIn handleSignOut={handleSignOut} currentUser={auth.currentUser} />
+          {isAuth ? (
+            <SignedIn handleSignOut={handleSignOut} profile={profile} />
           ) : (
             <SignedOut register={handleRegister} handleSignIn={handleSignIn} />
           )}
@@ -65,4 +67,4 @@ const Navigation = ({openModal, auth, signOut}) => {
   )
 }
 
-export default connect(mapState, actions)(Navigation)
+export default withFirebase(connect(mapState, actions)(Navigation))

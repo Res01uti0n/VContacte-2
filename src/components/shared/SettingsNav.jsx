@@ -19,7 +19,7 @@ export default function SettingsNav() {
       <Menu vertical>
         <Header icon="settings" attached inverted color="green" content="Account" />
 
-        <Menu.Item>My Account</Menu.Item>
+        <Menu.Item as={Link} to="/settings/account">My Account</Menu.Item>
       </Menu>
     </Grid.Column>
   )
