@@ -5,7 +5,7 @@ import Post from "./Post"
 export default function PostList({posts, handleSelectPost, handleDeletePost}) {
   return (
     <>
-      {posts.map(
+      {posts && posts.map(
         post => (
           <Post 
             key={post.id} 

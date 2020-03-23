@@ -2,21 +2,27 @@ import React from "react";
 import ReactDOM from "react-dom"
 import { BrowserRouter } from "react-router-dom"
 import { Provider } from "react-redux"
+import ReduxToastr from "react-redux-toastr"
 
 import App from "./components/shared/App"
 import * as serviceWorker from "./serviceWorker"
 import { storeConfig } from "./store/storeConfig"
 import ScrollToTop from "./utils/ScrollToTop"
-import { loadPosts } from "./actions/postActions"
+import "react-redux-toastr/lib/css/react-redux-toastr.min.css"
 
 const store = storeConfig()
-store.dispatch(loadPosts())
 
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <ScrollToTop>
+          <ReduxToastr 
+            position="bottom-right"
+            transitionIn="bounceIn"
+            transitionOut="bounceOut"
+          />
+
           <App />
         </ScrollToTop>
       </BrowserRouter>

@@ -1,14 +1,16 @@
 import React from "react"
 import { connect } from "react-redux"
+import { firestoreConnect } from "react-redux-firebase"
 
 import { Grid } from "semantic-ui-react"
 
 import PostList from "./PostList"
 import { deletePost } from "../../actions/postActions"
 import Loading from "./Loading"
+import ActivityList from "./ActivityList"
 
 const mapState = state => ({ 
-  posts: state.posts,
+  posts: state.firestore.ordered.posts,
   loading: state.async.loading
 })
 
@@ -28,10 +30,10 @@ const Home = ({posts, deletePost, loading}) => {
       </Grid.Column>
 
       <Grid.Column width={6}>
-        <h2>Activity</h2>
+        <ActivityList />
       </Grid.Column>  
     </Grid>
   )
 }
 
-export default connect(mapState, actions)(Home)
+export default connect(mapState, actions)(firestoreConnect([{collection: "posts"}])(Home))

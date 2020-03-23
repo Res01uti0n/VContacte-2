@@ -1,8 +1,10 @@
 import React, { useState } from "react"
+import { format } from "date-fns"
 
 import { Segment, Grid, Icon, Button } from "semantic-ui-react"
 
 import Map from "./Map"
+import { parseISO } from "date-fns/esm"
 
 export default function PostDetailMain({post}) {
   const [isMapOpen, setIsMapOpen] = useState(false)
@@ -28,7 +30,11 @@ export default function PostDetailMain({post}) {
           </Grid.Column>
 
           <Grid.Column width={15}>
-            <p>{post.date}</p>
+            <p>
+              {post.date /*&& 
+                format(parseISO(post.date), "EEEE do LLL")} at {format(parseISO(post.date), "H:mm a")*/
+              }
+            </p>
           </Grid.Column>
         </Grid>
       </Segment>

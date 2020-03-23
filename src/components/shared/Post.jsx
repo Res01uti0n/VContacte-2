@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { format } from "date-fns"
 
 import { 
   Segment, 
@@ -30,7 +31,7 @@ export default function Post({post, handleDeletePost}) {
       <Segment>
         <span>
           <Icon name="clock" />
-          {post.date}
+          {format(post.date.toDate(), "EEEE do LLLL")} at {format(post.date.toDate(), "h:mm a")}
           <Icon name="marker" />
           {post.venue}
         </span>
@@ -38,7 +39,9 @@ export default function Post({post, handleDeletePost}) {
 
       <Segment secondary>
         <List horizontal>
-          {post.like && post.like.map(user => <LikeList key={user.id} user={user} />)}
+          {post.like && 
+            Object.values(post.like).map(user => <LikeList key={user.id} user={user} />)
+          }
         </List>
       </Segment>
 

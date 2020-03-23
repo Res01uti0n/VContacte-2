@@ -1,5 +1,8 @@
 import { combineReducers } from "redux"
 import { reducer as FormReducer } from "redux-form"
+import { reducer as ToastrReducer } from "react-redux-toastr"
+import { firebaseReducer } from "react-redux-firebase"
+import { firestoreReducer } from "redux-firestore"
 
 import postReducer from "./postReducer"
 import modalReducer from "./modalReducer"
@@ -11,6 +14,9 @@ export const rootReducer = combineReducers({
   modal: modalReducer,
   form: FormReducer,
   posts: postReducer,
-  async: asyncReducer
+  async: asyncReducer,
+  toastr: ToastrReducer,
+  firebase: firebaseReducer,
+  firestore: firestoreReducer
 })
 

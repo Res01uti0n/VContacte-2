@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { format } from "date-fns"
+import { parseISO } from "date-fns/esm"
 
 import { 
   Segment, 
@@ -25,7 +27,7 @@ export default function PostDetailHeader({post}) {
                   content={post.title}
                 />
 
-                <p>{post.date}</p>
+                <p>{post.date /*&& format(parseISO(post.date, "EEEE do LLL"))*/}</p>
 
                 <p>{post.postedBy}</p>
               </ItemContent>
