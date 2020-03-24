@@ -6,16 +6,16 @@ import { Form, Label } from "semantic-ui-react"
 import "react-datepicker/dist/react-datepicker.css"
 
 export default function DateInput(
-  {input, placeholder, meta: {touched, error}, ...rest}
+  {input: {value, onChange, onBlur}, width, placeholder, meta: {touched, error}, ...rest}
 ) {
   return (
     <Form.Field error={touched && !!error}>
       <ReactDatePicker 
         {...rest}
-        placeholder={placeholder}
-        selected={input.value ? new Date(input.value) : null}
-        onChange={input.onChange}
-        onBlur={input.onBlur}
+        placeholderText={placeholder}
+        selected={value ? Object.prototype.toString.call(value) !== "[object Date]" ? value.toDate() : value : null}
+        onChange={onChange}
+        onBlur={(e, val) => onBlur(val)}
         onChangeRaw={e => e.preventDefault()}
       />
       {touched && error && <Label basic color="red">{error}</Label>}

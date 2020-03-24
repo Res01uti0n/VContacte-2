@@ -9,6 +9,7 @@ import {
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { reduxForm, Field } from "redux-form"
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete"
 import cuid from "cuid"
 
 import { Segment, Form, Button, Grid, Header } from "semantic-ui-react"
@@ -19,7 +20,6 @@ import TextArea from "./TextArea"
 import SelectInput from "./SelectInput"
 import DateInput from "./DateInput"
 import PlaceInput from "./PlaceInput"
-import { geocodeByAddress, getLatLng } from "react-places-autocomplete"
 
 const mapState = (state, ownProps) => {
   const postId = ownProps.match.params.id
