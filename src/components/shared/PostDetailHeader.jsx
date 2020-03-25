@@ -29,7 +29,14 @@ export default function PostDetailHeader({post}) {
 
                 <p>{post.date /*&& format(parseISO(post.date, "EEEE do LLL"))*/}</p>
 
-                <p>{post.postedBy}</p>
+                <p>
+                  Posted by
+                  <strong>
+                    <Link to={`/profile/${post.postUid}`} style={{ color: "white" }}>
+                      {post.postUid}
+                    </Link>
+                  </strong>
+                </p>
               </ItemContent>
             </Item>
           </Item.Group>

@@ -22,7 +22,14 @@ export default function Post({post, handleDeletePost}) {
           <Item.Content>
             <Item.Header>{post.title}</Item.Header>
             <Item.Description>
-              Posted by {post.postedBy}
+              <p>
+                Posted by
+                  <strong>
+                  <Link to={`/profile/${post.postUid}`}>
+                    {post.postedBy}
+                  </Link>
+                </strong>
+              </p>
             </Item.Description>
           </Item.Content>
         </Item>

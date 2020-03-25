@@ -9,6 +9,7 @@ import UserDetailSidebar from "./UserDetailSidebar"
 import UserDetailPhotos from "./UserDetailPhotos"
 import UserDetailPosts from './UserDetailPosts'
 import UserDetailDescription from "./UserDetailDescription"
+import { userDetailQuery } from "../userQueries"
 import Loading from "./Loading"
 
 const mapState = (state, ownProps) => {
@@ -30,33 +31,6 @@ const mapState = (state, ownProps) => {
     auth: state.firebase.auth,
     photos: state.firestore.ordered.photos,
     requesting: state.firestore.status.requesting
-  }
-}
-
-const userDetailedQuery = ({ auth, userUid }) => {
-  if (userUid !== null) {
-    return [
-      {
-        collection: "users",
-        doc: userUid,
-        storeAs: "profile"
-      },
-      {
-        collection: "users",
-        doc: userUid,
-        subcollections: [{ collection: "photos" }],
-        storeAs: "photos"
-      }
-    ]
-  } else {
-    return [
-      {
-        collection: "users",
-        doc: auth.uid,
-        subcollections: [{ collection: "photos" }],
-        storeAs: "photos"
-      }
-    ]
   }
 }
 

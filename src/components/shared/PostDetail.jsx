@@ -12,8 +12,12 @@ const mapState = (state, ownProps) => {
   const postId = ownProps.match.params.id
   let post = {}
 
-  if (postId && state.posts.length > 0) {
-    post = state.posts.filter(post => post.id === postId)[0]
+  if (
+    state.firestore.ordered.posts &&
+    state.firestore.ordered.posts.length > 0
+  ) {
+    post =
+      state.firestore.ordered.posts.filter(post => post.id === postId)[0] || {}
   }
 
   return { post }
