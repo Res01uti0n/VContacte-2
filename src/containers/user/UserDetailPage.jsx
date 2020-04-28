@@ -4,14 +4,14 @@ import { useFirestoreConnect, useFirebase } from "react-redux-firebase";
 
 import { Grid } from "semantic-ui-react";
 
-import UserDetailDescription from "./UserDetailDescription";
-import UserDetailEvents from "./UserDetailEvents";
-import UserDetailHeader from "./UserDetailHeader";
-import UserDetailPhotos from "./UserDetailPhotos";
-import UserDetailSidebar from "./UserDetailSidebar";
-import { getUserEvents } from "../userActions";
+import UserDetailDescription from "../../components/user/UserDetailDescription";
+import UserDetailEvents from "../../components/user/UserDetailEvents";
+import UserDetailHeader from "../../components/user/UserDetailHeader";
+import UserDetailPhotos from "../../components/user/UserDetailPhotos";
+import UserDetailSidebar from "../../components/user/UserDetailSidebar";
+import { getUserEvents } from "../../redux/actions/userActions";
 
-const UserDetailedPage = ({ match: { params } }) => {
+const UserDetailPage = ({ match: { params } }) => {
   const dispatch = useDispatch();
   const firebase = useFirebase();
   const isCurrentUser = firebase.auth().currentUser.uid === params.id;
@@ -80,4 +80,4 @@ const UserDetailedPage = ({ match: { params } }) => {
   );
 };
 
-export default UserDetailedPage;
+export default UserDetailPage;

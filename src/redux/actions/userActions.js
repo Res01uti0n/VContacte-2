@@ -5,9 +5,9 @@ import {
   asyncActionError,
   asyncActionFinish,
   asyncActionStart,
-} from "../async/asyncActions";
-import { GET_USER_EVENTS } from "./userConstants";
-import firebase from "../../app/config/firebase";
+} from "./asyncActions";
+import { GET_USER_EVENTS } from "../constants/userConstants";
+import firebase from "../../config/firebaseConfig";
 
 export const updateProfile = ({ firebase }, user) => {
   return async (dispatch) => {
@@ -44,6 +44,7 @@ export const uploadProfileImage = ({ firebase, firestore }, file) => async (
       await firebase.updateProfile({
         photoURL: downloadURL,
       });
+
       await user.updateProfile({
         photoURL: downloadURL,
       });
@@ -190,8 +191,7 @@ export const cancelGoingToEvent = ({ firebase, firestore }, event) => async (
 };
 
 export const getUserEvents = (userUid, activeTab) => async (
-  dispatch,
-  getState
+  dispatch
 ) => {
   dispatch(asyncActionStart());
   const firestore = firebase.firestore();

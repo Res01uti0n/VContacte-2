@@ -5,12 +5,12 @@ import { Field, reduxForm } from "redux-form";
 
 import { Button, Divider, Form, Header, Segment } from "semantic-ui-react";
 
-import RadioInput from "../../../app/common/form/RadioInput";
-import TextInput from "../../../app/common/form/TextInput";
-import TextArea from "../../../app/common/form/TextArea";
-import PlaceInput from "../../../app/common/form/PlaceInput";
-import SelectInput from "../../../app/common/form/SelectInput";
-import { updateProfile } from "../../user/userActions";
+import RadioInput from "../../utils/form/RadioInput";
+import TextInput from "../../utils/form/TextInput";
+import TextArea from "../../utils/form/TextArea";
+import PlaceInput from "../../utils/form/PlaceInput";
+import SelectInput from "../../utils/form/SelectInput";
+import { updateProfile } from "../../redux/actions/userActions";
 
 const interests = [
   { key: "drinks", text: "Drinks", value: "drinks" },

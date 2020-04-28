@@ -4,9 +4,9 @@ import {
   asyncActionStart,
   asyncActionFinish,
   asyncActionError,
-} from "../async/asyncActions";
-import { createNewEvent, objectToArray } from "../../app/common/util/helpers";
-import { MORE_EVENTS } from "./eventConstants";
+} from "./asyncActions";
+import { createNewEvent, objectToArray } from "../../utils/helpers";
+import { MORE_EVENTS } from "../constants/eventConstants";
 
 export const createEvent = ({ firebase, firestore }, event) => {
   return async (dispatch, getState) => {

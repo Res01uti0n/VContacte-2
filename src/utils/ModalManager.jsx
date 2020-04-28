@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-import LoginModal from "./LoginModal";
-import RegisterModal from "./RegisterModal";
-import UnauthModal from "./UnauthModal";
+import LoginModal from "../containers/shared/modals/LoginModal";
+import RegisterModal from "../containers/shared/modals/RegisterModal";
+import UnauthModal from "../containers/shared/modals/UnauthModal";
 
 const modalLookup = {
   LoginModal,
@@ -11,11 +11,8 @@ const modalLookup = {
   UnauthModal,
 };
 
-const mapState = (state) => ({
-  currentModal: state.modals,
-});
-
-const ModalManager = ({ currentModal }) => {
+const ModalManager = () => {
+  const currentModal = useSelector((state) => state.modals, []);
   let renderedModal;
 
   if (currentModal) {
@@ -24,7 +21,8 @@ const ModalManager = ({ currentModal }) => {
 
     renderedModal = <ModalComponent {...modalProps} />;
   }
+
   return <span>{renderedModal}</span>;
 };
 
-export default connect(mapState)(ModalManager);
+export default ModalManager;

@@ -4,7 +4,7 @@ import { useFirestoreConnect } from "react-redux-firebase";
 
 import { Grid, Segment, Header, Card } from "semantic-ui-react";
 
-import PersonCard from "./PersonCard";
+import PersonCard from "../../components/people/PersonCard";
 
 const PeopleDashboard = () => {
   const auth = useSelector((state) => state.firebase.auth);

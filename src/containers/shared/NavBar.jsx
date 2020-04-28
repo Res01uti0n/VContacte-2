@@ -1,16 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink, Link, withRouter } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 import { useFirebase } from "react-redux-firebase";
 
 import { Menu, Container, Button, Icon } from "semantic-ui-react";
 
-import SignedOutMenu from "../Menus/SignedOutMenu";
-import SignedInMenu from "../Menus/SignedInMenu";
+import SignedOutMenu from "./menu/SignedOutMenu";
+import SignedInMenu from "./menu/SignedInMenu";
 
-const NavBar = ({ history }) => {
+const NavBar = () => {
   const firebase = useFirebase();
   const auth = useSelector((state) => state.firebase.auth, []);
+  const history = useHistory();
 
   const handleLogout = () => {
     firebase
@@ -28,13 +29,13 @@ const NavBar = ({ history }) => {
       <Container>
         <Menu.Item as={Link} to="/" header>
           <img src="/assets/logo.png" alt="logo" />
-          Re-vents Alpha
+          Vcontacte Alpha
         </Menu.Item>
 
         <Menu.Item as={NavLink} exact to="/events" name="Events" />
 
         {authenticated && (
-          <Fragment>
+          <>
             <Menu.Item as={NavLink} to="/test" name="Test" />
             <Menu.Item as={NavLink} to="/people" name="People" />
             <Menu.Item>
@@ -47,15 +48,10 @@ const NavBar = ({ history }) => {
                 content="Create Event"
               />
             </Menu.Item>
-          </Fragment>
+          </>
         )}
-        
-        <Menu.Item
-          position={"right"}
-          as="a"
-          href=""
-          target={"_blank"}
-        >
+
+        <Menu.Item position={"right"} as="a" href="" target={"_blank"}>
           Report a Bug
           <Icon
             name={"bug"}
@@ -74,4 +70,4 @@ const NavBar = ({ history }) => {
   );
 };
 
-export default withRouter(NavBar);
+export default NavBar;

@@ -10,7 +10,7 @@ const SettingsNav = () => {
         <Header icon="user" attached inverted color="grey" content="Profile" />
 
         <Menu.Item as={NavLink} to="/settings/basic">
-          Basics
+          Main
         </Menu.Item>
 
         <Menu.Item as={NavLink} to="/settings/about">

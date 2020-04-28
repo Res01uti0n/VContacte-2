@@ -5,8 +5,8 @@ import { Field, reduxForm } from "redux-form";
 
 import { Form, Button } from "semantic-ui-react";
 
-import { addEventComment } from "../eventActions";
-import TextArea from "../../../app/common/form/TextArea";
+import { addEventComment } from "../../../redux/actions/eventActions";
+import TextArea from "../../../utils/form/TextArea";
 
 const EventDetailChatForm = ({
   handleSubmit,
@@ -21,7 +21,7 @@ const EventDetailChatForm = ({
   const handleCommentSubmit = (values) => {
     dispatch(addEventComment({ firebase }, eventId, values, parentId));
     reset();
-    
+
     if (parentId !== 0) {
       closeForm();
     }

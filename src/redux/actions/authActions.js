@@ -1,7 +1,7 @@
 import { SubmissionError, reset } from "redux-form";
 import toastr from "react-redux-toastr";
 
-import { closeModal } from "../modals/modalActions";
+import { closeModal } from "./modalActions";
 
 export const login = ({ firebase }, user) => async (dispatch) => {
   try {
@@ -69,7 +69,7 @@ export const socialLogin = (
 
 export const updatePassword = ({ firebase }, creds) => async (dispatch) => {
   const user = firebase.auth().currentUser;
-  
+
   try {
     await user.updatePassword(creds.newPassword1);
     await dispatch(reset("account"));

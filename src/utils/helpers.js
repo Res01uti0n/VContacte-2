@@ -28,7 +28,7 @@ export const createDataTree = (dataset) => {
   let hashTable = Object.create(null);
 
   dataset.forEach((a) => (hashTable[a.id] = { ...a, childNodes: [] }));
-  
+
   let dataTree = [];
 
   dataset.forEach((a) => {

@@ -12,6 +12,7 @@ const EventActivityItem = ({ activity }) => {
         return (
           <div>
             New Event!{" "}
+
             <Feed.User
               as={Link}
               to={{ pathname: "/profile/" + activity.hostUid }}
@@ -30,13 +31,16 @@ const EventActivityItem = ({ activity }) => {
         return (
           <div>
             Event Cancelled!{" "}
+
             <Feed.User
               as={Link}
               to={{ pathname: "/profile/" + activity.hostUid }}
             >
               {activity.hostedBy}
             </Feed.User>{" "}
+
             has cancelled{" "}
+            
             <Link to={{ pathname: "/event/" + activity.eventId }}>
               {activity.title}
             </Link>

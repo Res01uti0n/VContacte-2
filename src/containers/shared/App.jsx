@@ -4,19 +4,18 @@ import { Route, Switch } from "react-router-dom";
 
 import { Container } from "semantic-ui-react";
 
-import EventDashboard from "../../features/event/EventDashboard/EventDashboard";
-import NavBar from "../../features/nav/NavBar/NavBar";
-import EventDetailedPage from "../../features/event/EventDetailed/EventDetailedPage";
-import PeopleDashboard from "../../features/user/PeopleDashboard/PeopleDashboard";
-import UserDetailedPage from "../../features/user/UserDetailed/UserDetailedPage";
-import SettingsDashboard from "../../features/user/Settings/SettingsDashboard";
-import EventForm from "../../features/event/EventForm/EventForm";
-import HomePage from "../../features/home/HomePage";
-import TestComponent from "../../features/testarea/TestComponent";
-import ModalManager from "../../features/modals/ModalManager";
-import LoadingComponent from "./LoadingComponent";
-import { UserIsAuthenticated } from "../../features/auth/AuthWrapper";
-import NotFound from "./NotFound";
+import EventDashboard from "../event/EventDashboard";
+import NavBar from "./NavBar";
+import EventDetailPage from "../event/eventDetail/EventDetailPage";
+import PeopleDashboard from "../people/PeopleDashboard";
+import UserDetailPage from "../user/UserDetailPage";
+import SettingsDashboard from "../settings/SettingsDashboard";
+import EventForm from "../event/EventForm";
+import StartPage from "../../components/home/StartPage";
+import ModalManager from "../../utils/ModalManager";
+import LoadingComponent from "../../components/shared/LoadingComponent";
+import { UserIsAuthenticated } from "../../utils/AuthWrapper";
+import NotFound from "../../components/shared/NotFound";
 
 const App = () => {
   const auth = useSelector((state) => state.firebase.auth, []);
@@ -28,7 +27,7 @@ const App = () => {
       <ModalManager />
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={StartPage} />
       </Switch>
 
       <Route
@@ -36,12 +35,11 @@ const App = () => {
         render={() => (
           <Fragment>
             <NavBar />
-            
+
             <Container className="main">
               <Switch>
                 <Route exact path="/events" component={EventDashboard} />
-                <Route path="/test" component={TestComponent} />
-                <Route path="/events/:id" component={EventDetailedPage} />
+                <Route path="/events/:id" component={EventDetailPage} />
                 <Route
                   path={["/manage/:id", "/createEvent"]}
                   component={UserIsAuthenticated(EventForm)}
@@ -52,7 +50,7 @@ const App = () => {
                 />
                 <Route
                   path="/profile/:id"
-                  component={UserIsAuthenticated(UserDetailedPage)}
+                  component={UserIsAuthenticated(UserDetailPage)}
                 />
                 <Route
                   path="/settings"

@@ -3,7 +3,7 @@ import { format } from "date-fns";
 
 import { Segment, Grid, Icon, Button } from "semantic-ui-react";
 
-import EventDetailedMap from "./EventDetailedMap";
+import EventDetailMap from "./EventDetailMap";
 
 const EventDetailInfo = ({ event }) => {
   const [showMap, setShowMap] = useState(false);
@@ -61,7 +61,7 @@ const EventDetailInfo = ({ event }) => {
       </Segment>
 
       {showMap && (
-        <EventDetailedMap
+        <EventDetailMap
           lat={event.venueLatLng.lat}
           lng={event.venueLatLng.lng}
         />

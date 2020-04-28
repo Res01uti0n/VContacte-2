@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { Header, Segment, Feed, Sticky } from "semantic-ui-react";
 
-import EventActivityItem from "./EventActivityItem";
+import EventActivityItem from "../../../components/event/eventActivityEventActivityItem";
 
 const EventActivity = ({ contextRef }) => {
   const query = useMemo(
@@ -18,7 +18,7 @@ const EventActivity = ({ contextRef }) => {
   );
 
   useFirestoreConnect(query);
-  
+
   const activitySelector = useCallback(
     (state) => state.firestore.ordered.activity,
     []
@@ -29,7 +29,7 @@ const EventActivity = ({ contextRef }) => {
   return (
     <Sticky context={contextRef} offset={100} styleElement={{ zIndex: 0 }}>
       <Header attached="top" content="Recent Activity" />
-      
+
       <Segment attached>
         <Feed>
           {activities &&

@@ -4,11 +4,11 @@ import { useFirestore } from "react-redux-firebase";
 
 import { Grid, Loader } from "semantic-ui-react";
 
-import EventList from "../EventList/EventList";
-import EventActivity from "../EventActivity/EventActivity";
-import { getPagedEvents } from "../eventActions";
-import LoadingComponent from "../../../app/layout/LoadingComponent";
-import { objectToArray } from "../../../app/common/util/helpers";
+import EventList from "../../components/event/eventList/EventList";
+import EventActivity from "./eventActivity/EventActivity";
+import { getPagedEvents } from "../../redux/actions/eventActions";
+import LoadingComponent from "../../components/shared/LoadingComponent";
+import { objectToArray } from "../../utils/helpers";
 
 const EventDashboard = () => {
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const EventDashboard = () => {
       <Grid.Column width={6}>
         <EventActivity />
       </Grid.Column>
-      
+
       <Grid.Column width={10}>
         <Loader active={loading} />
       </Grid.Column>

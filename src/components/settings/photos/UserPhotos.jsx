@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import { Header, Card, Image, Button } from "semantic-ui-react";
 
@@ -18,7 +18,7 @@ const UserPhotos = ({
   }
 
   return (
-    <Fragment>
+    <>
       <Header sub color="teal" content="All Photos" />
 
       <Card.Group itemsPerRow={5}>
@@ -52,7 +52,7 @@ const UserPhotos = ({
             </Card>
           ))}
       </Card.Group>
-    </Fragment>
+    </>
   );
 };
 

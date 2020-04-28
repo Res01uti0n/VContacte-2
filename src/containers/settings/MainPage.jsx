@@ -6,11 +6,11 @@ import { addYears } from "date-fns";
 
 import { Segment, Form, Header, Divider, Button } from "semantic-ui-react";
 
-import DateInput from "../../../app/common/form/DateInput";
-import PlaceInput from "../../../app/common/form/PlaceInput";
-import TextInput from "../../../app/common/form/TextInput";
-import RadioInput from "../../../app/common/form/RadioInput";
-import { updateProfile } from "../../user/userActions";
+import DateInput from "../../utils/form/DateInput";
+import PlaceInput from "../../utils/form/PlaceInput";
+import TextInput from "../../utils/form/TextInput";
+import RadioInput from "../../utils/form/RadioInput";
+import { updateProfile } from "../../redux/actions/userActions";
 
 const MainPage = ({ pristine, submitting, handleSubmit }) => {
   const dispatch = useDispatch();

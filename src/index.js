@@ -6,15 +6,15 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import ReduxToastr from "react-redux-toastr";
 
-import App from "./app/layout/App";
+import App from "./containers/shared/App";
 import * as serviceWorker from "./serviceWorker";
-import { configureStore } from "./app/store/configureStore";
-import ScrollToTop from "./app/common/util/ScrollToTop";
-import firebase from "./app/config/firebase";
+import { storeConfig } from "./config/storeConfig";
+import ScrollToTop from "./utils/ScrollToTop";
+import firebase from "./config/firebaseConfig";
 import "react-redux-toastr/lib/css/react-redux-toastr.min.css";
 import "./styles/index.css";
 
-const store = configureStore();
+const store = storeConfig();
 
 const rrfConfig = {
   userProfile: "users",
@@ -54,14 +54,11 @@ let render = () => {
 };
 
 if (module.hot) {
-  module.hot.accept("./app/layout/App", () => {
+  module.hot.accept("./containers/shared/App", () => {
     setTimeout(render);
   });
 }
 
 render();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.register();

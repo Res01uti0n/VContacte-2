@@ -4,13 +4,13 @@ import { useFirestoreConnect } from "react-redux-firebase";
 
 import { Grid } from "semantic-ui-react";
 
-import EventDetailedHeader from "./EventDetailedHeader";
-import EventDetailedInfo from "./EventDetailedInfo";
-import EventDetailedChat from "./EventDetailedChat";
-import EventDetailedSidebar from "./EventDetailedSidebar";
-import LoadingComponent from "../../../app/layout/LoadingComponent";
-import { objectToArray } from "../../../app/common/util/helpers";
-import NotFound from "../../../app/layout/NotFound";
+import EventDetailHeader from "./EventDetailHeader";
+import EventDetailInfo from "../../../components/event/eventDetail/EventDetailInfo";
+import EventDetailChat from "./EventDetailChat";
+import EventDetailSidebar from "../../../components/event/eventDetail/EventDetailSidebar";
+import LoadingComponent from "../../../components/shared/LoadingComponent";
+import { objectToArray } from "../../../utils/helpers";
+import NotFound from "../../../components/shared/NotFound";
 
 const EventDetailPage = ({ match: { params } }) => {
   useFirestoreConnect(`events/${params.id}`);
@@ -48,20 +48,20 @@ const EventDetailPage = ({ match: { params } }) => {
   return (
     <Grid>
       <Grid.Column width={10}>
-        <EventDetailedHeader
+        <EventDetailHeader
           event={event}
           isHost={isHost}
           isGoing={isGoing}
           authenticated={authenticated}
         />
 
-        <EventDetailedInfo event={event} />
+        <EventDetailInfo event={event} />
 
-        {authenticated && <EventDetailedChat eventId={event.id} />}
+        {authenticated && <EventDetailChat eventId={event.id} />}
       </Grid.Column>
 
       <Grid.Column width={6}>
-        <EventDetailedSidebar attendees={attendees} />
+        <EventDetailSidebar attendees={attendees} />
       </Grid.Column>
     </Grid>
   );

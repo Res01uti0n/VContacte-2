@@ -15,14 +15,14 @@ import { toastr } from "react-redux-toastr";
 
 import { Segment, Header, Divider, Grid, Button } from "semantic-ui-react";
 
-import DropzoneInput from "./DropZoneInput";
-import CropperInput from "./CropperInput";
+import DropzoneInput from "../../../components/settings/photos/DropZoneInput";
+import CropperInput from "../../../components/settings/photos/CropperInput";
 import {
   uploadProfileImage,
   deletePhoto,
   setMainPhoto,
-} from "../../userActions";
-import UserPhotos from "./UserPhotos";
+} from "../../../redux/actions/userActions";
+import UserPhotos from "../../../components/settings/photos/UserPhotos";
 
 const PhotosPage = () => {
   const dispatch = useDispatch();

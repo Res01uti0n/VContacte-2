@@ -57,7 +57,7 @@ const EventListItem = ({ event }) => (
 
     <Segment clearing>
       <span>{event.description}</span>
-      
+
       <Button
         as={Link}
         to={`/events/${event.id}`}

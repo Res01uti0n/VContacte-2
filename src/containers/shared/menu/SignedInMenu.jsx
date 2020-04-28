@@ -27,7 +27,7 @@ const SignedInMenu = ({ signOut }) => {
             text="My Profile"
             icon="user"
           />
-          
+
           <Dropdown.Item
             as={Link}
             to="/settings"

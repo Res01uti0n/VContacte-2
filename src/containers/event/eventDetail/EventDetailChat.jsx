@@ -9,7 +9,7 @@ import { Segment, Header, Comment } from "semantic-ui-react";
 import {
   createDataTree,
   objectToArray,
-} from "../../../app/common/util/helpers";
+} from "../../../utils/helpers";
 import EventDetailChatForm from "./EventDetailChatForm";
 
 const EventDetailChat = ({ eventId }) => {

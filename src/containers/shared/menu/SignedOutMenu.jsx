@@ -16,6 +16,7 @@ const SignedOutMenu = () => {
         inverted
         content="Login"
       />
+      
       <Button
         onClick={() => dispatch(openModal("RegisterModal"))}
         basic

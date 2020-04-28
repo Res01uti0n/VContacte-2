@@ -5,9 +5,9 @@ import { Field, reduxForm } from "redux-form";
 
 import { Form, Segment, Button, Label, Divider } from "semantic-ui-react";
 
-import TextInput from "../../../app/common/form/TextInput";
-import { login, socialLogin } from "../authActions";
-import SocialLogin from "../SocialLogin/SocialLogin";
+import TextInput from "../../utils/form/TextInput";
+import { login, socialLogin } from "../../redux/actions/authActions";
+import SocialLogin from "../../components/auth/SocialLogin";
 
 const LoginForm = ({ handleSubmit, error, submitting }) => {
   const dispatch = useDispatch();

@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { Modal } from "semantic-ui-react";
 
-import LoginForm from "../auth/Login/LoginForm";
-import { closeModal } from "../modals/modalActions";
+import LoginForm from "../../auth/LoginForm";
+import { closeModal } from "../../../redux/actions/modalActions";
 
 const LoginModal = () => {
   const dispatch = useDispatch();

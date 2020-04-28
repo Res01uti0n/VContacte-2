@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useFirebase, useFirestore } from "react-redux-firebase";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Segment, Image, Item, Header, Button, Label } from "semantic-ui-react";
 
-import { goingToEvent, cancelGoingToEvent } from "../../user/userActions";
-import { openModal } from "../../modals/modalActions";
+import { goingToEvent, cancelGoingToEvent } from "../../../redux/actions/userActions";
+import { openModal } from "../../../redux/actions/modalActions";
 
 const eventImageStyle = {
   filter: "brightness(30%)",
@@ -54,6 +54,7 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
 
                 <p>
                   Hosted by{" "}
+
                   <strong>
                     <Link to={`/profile/${event.hostUid}`}>
                       {event.hostedBy}
@@ -76,7 +77,7 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
         )}
 
         {!isHost && (
-          <Fragment>
+          <>
             {isGoing && !event.cancelled && (
               <Button
                 onClick={() =>
@@ -108,7 +109,7 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
                 JOIN THIS EVENT
               </Button>
             )}
-          </Fragment>
+          </>
         )}
 
         {isHost && (

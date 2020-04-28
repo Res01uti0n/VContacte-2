@@ -18,12 +18,12 @@ import {
 
 import { Form, Segment, Button, Grid, Header } from "semantic-ui-react";
 
-import { createEvent, updateEvent, cancelToggle } from "../eventActions";
-import TextInput from "../../../app/common/form/TextInput";
-import TextArea from "../../../app/common/form/TextArea";
-import SelectInput from "../../../app/common/form/SelectInput";
-import DateInput from "../../../app/common/form/DateInput";
-import PlaceInput from "../../../app/common/form/PlaceInput";
+import { createEvent, updateEvent, cancelToggle } from "../../redux/actionseventActions";
+import TextInput from "../../utils/form/TextInput";
+import TextArea from "../../utils/form/TextArea";
+import SelectInput from "../../utils/form/SelectInput";
+import DateInput from "../../utils/form/DateInput";
+import PlaceInput from "../../utils/form/PlaceInput";
 
 const validate = combineValidators({
   title: isRequired({ message: "The event title is required" }),
@@ -184,7 +184,7 @@ const EventForm = ({
             >
               Submit
             </Button>
-            
+
             <Button onClick={history.goBack} type="button">
               Cancel
             </Button>

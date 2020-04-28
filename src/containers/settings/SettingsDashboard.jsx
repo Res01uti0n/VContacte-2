@@ -4,10 +4,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import { Grid } from "semantic-ui-react";
 
-import SettingsNav from "./SettingsNav";
+import SettingsNav from "../../components/settings/SettingsNav";
 import MainPage from "./MainPage";
 import AboutPage from "./AboutPage";
-import PhotosPage from "./Photos/PhotosPage";
+import PhotosPage from "./photos/PhotosPage";
 import AccountPage from "./AccountPage";
 
 const SettingsDashboard = () => {
