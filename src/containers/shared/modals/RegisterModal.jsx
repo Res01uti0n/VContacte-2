@@ -1,27 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 
 import { Modal } from "semantic-ui-react";
 
-import { closeModal } from "../modals/modalActions";
-import RegisterForm from "../auth/Register/RegisterForm";
+import { closeModal } from "../../../redux/actions/modalActions";
+import RegisterForm from "../../auth/RegisterForm";
 
-const actions = { closeModal };
+export default function RegisterModal() {
+  const dispatch = useDispatch()
 
-class RegisterModal extends Component {
-  render() {
-    return (
-      <Modal size="mini" open={true} onClose={this.props.closeModal}>
-        <Modal.Header>Sign Up to Re-vents!</Modal.Header>
-        
-        <Modal.Content>
-          <Modal.Description>
-            <RegisterForm />
-          </Modal.Description>
-        </Modal.Content>
-      </Modal>
-    );
-  }
+  return (
+    <Modal size="mini" open={true} onClose={() => dispatch(closeModal)}>
+      <Modal.Header>Sign Up to Re-vents!</Modal.Header>
+
+      <Modal.Content>
+        <Modal.Description>
+          <RegisterForm />
+        </Modal.Description>
+      </Modal.Content>
+    </Modal>
+  );
 }
-
-export default connect(null, actions)(RegisterModal);

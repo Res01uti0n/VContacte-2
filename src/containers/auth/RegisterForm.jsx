@@ -5,8 +5,8 @@ import { Field, reduxForm } from "redux-form";
 
 import { Form, Segment, Button } from "semantic-ui-react";
 
-import TextInput from "../../../app/common/form/TextInput";
-import { registerUser } from "../authActions";
+import TextInput from "../../utils/form/TextInput";
+import { registerUser } from "../../redux/actions/authActions";
 
 const RegisterForm = ({ handleSubmit }) => {
   const dispatch = useDispatch();

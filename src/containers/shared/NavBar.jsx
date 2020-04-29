@@ -28,7 +28,7 @@ const NavBar = () => {
     <Menu inverted fixed="top">
       <Container>
         <Menu.Item as={Link} to="/" header>
-          <img src="/assets/logo.png" alt="logo" />
+          <img src="/assets/logo.svg" alt="logo" />
           Vcontacte Alpha
         </Menu.Item>
 

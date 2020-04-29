@@ -13,32 +13,26 @@ const StartPage = ({ history }) => {
   return (
     <Segment inverted textAlign="center" vertical className="masthead">
       <Container text>
-        <Header as="h1" inverted>
-          <Image
-            size="massive"
-            src="/assets/logo.png"
-            alt="logo"
-            style={{ marginBottom: 12 }}
-          />
+        <Header as="h1" color="yellow" inverted>
+          <Image size="massive" src="assets/logo.svg" style={{marginTop: "-20px"}} />
           Vcontacte
         </Header>
 
         <Header
           inverted
           sub
-          content={
-            "Experimental version of the Revents site using Alpha packages... there may be some bugs!"
-          }
+          content={"Experimental version of the Vcontacte site."}
         />
 
         <Button
           onClick={() => history.push("/events")}
           size="huge"
           inverted
+          color="yellow"
           style={{ marginTop: 20 }}
         >
           Get started
-          <Icon name="right arrow" inverted />
+          <Icon color="yellow" style={{ marginLeft: 5 }} name="sign-in" inverted />
         </Button>
       </Container>
     </Segment>

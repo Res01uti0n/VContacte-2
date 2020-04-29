@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { Header, Segment, Feed, Sticky } from "semantic-ui-react";
 
-import EventActivityItem from "../../../components/event/eventActivityEventActivityItem";
+import EventActivityItem from "../../../components/event/eventActivity/EventActivityItem";
 
 const EventActivity = ({ contextRef }) => {
   const query = useMemo(

@@ -18,7 +18,7 @@ import {
 
 import { Form, Segment, Button, Grid, Header } from "semantic-ui-react";
 
-import { createEvent, updateEvent, cancelToggle } from "../../redux/actionseventActions";
+import { createEvent, updateEvent, cancelToggle } from "../../redux/actions/eventActions";
 import TextInput from "../../utils/form/TextInput";
 import TextArea from "../../utils/form/TextArea";
 import SelectInput from "../../utils/form/SelectInput";

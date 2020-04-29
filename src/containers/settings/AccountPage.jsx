@@ -19,7 +19,7 @@ import {
   Icon,
 } from "semantic-ui-react";
 
-import TextInput from "../../redux/form/TextInput";
+import TextInput from "../../utils/form/TextInput";
 import { updatePassword } from "../../redux/actions/authActions";
 
 const validate = combineValidators({

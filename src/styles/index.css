@@ -27,9 +27,9 @@ body {
   align-items: center;
   background-image: linear-gradient(
     135deg,
-    rgb(24, 42, 115) 0%,
-    rgb(33, 138, 174) 69%,
-    rgb(32, 167, 172) 89%
+    rgb(56, 142, 60) 0%,
+    rgb(102, 187, 106) 69%,
+    rgb(165, 214, 167) 89%
   ) !important;
   height: 100vh;
 }
@@ -73,9 +73,9 @@ body {
 .ui.fixed.menu {
   background-image: linear-gradient(
     135deg,
-    rgb(24, 42, 115) 0%,
-    rgb(33, 138, 174) 69%,
-    rgb(32, 167, 172) 89%
+    rgb(56, 142, 60) 0%,
+    rgb(102, 187, 106) 69%,
+    rgb(165, 214, 167) 89%
   ) !important;
 }
 

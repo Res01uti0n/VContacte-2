@@ -18,7 +18,7 @@ const EventDashboard = () => {
   const events = useSelector(
     (state) => objectToArray(state.firestore.data.events) || []
   );
-
+  
   const moreEvents = useSelector((state) => state.events.moreEvents);
   const loading = useSelector((state) => state.async.loading);
 
@@ -26,7 +26,6 @@ const EventDashboard = () => {
     const getEvents = async () => {
       await dispatch(getPagedEvents({ firestore }));
     };
-
     if (events.length === 0) {
       getEvents().then(() => {
         setLoadingInitial(false);
@@ -65,3 +64,5 @@ const EventDashboard = () => {
 };
 
 export default EventDashboard;
+
+

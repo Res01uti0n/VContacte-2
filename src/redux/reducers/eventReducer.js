@@ -3,8 +3,8 @@ import {
   DELETE_EVENT,
   UPDATE_EVENT,
   MORE_EVENTS,
-} from "./eventConstants";
-import { createReducer } from "../../app/common/util/reducerUtils";
+} from "../constants/eventConstants";
+import { createReducer } from "../../utils/reducerUtils";
 
 const initialState = {
   events: [],

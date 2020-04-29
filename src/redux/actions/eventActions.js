@@ -13,17 +13,14 @@ export const createEvent = ({ firebase, firestore }, event) => {
     const user = firebase.auth().currentUser;
     const photoURL = getState().firebase.profile.photoURL;
     const newEvent = createNewEvent(user, photoURL, event, firestore);
-
     try {
       let createdEvent = await firestore.add("events", newEvent);
-
       await firestore.set(`event_attendee/${createdEvent.id}_${user.uid}`, {
         eventId: createdEvent.id,
         userUid: user.uid,
         eventDate: event.date,
         host: true,
       });
-
       toastr.success("Success!", "Event has been created");
       return createdEvent;
     } catch (error) {
@@ -40,7 +37,6 @@ export const updateEvent = ({ firestore }, event) => {
       let dateEqual = getState().firestore.ordered.events[0].date.isEqual(
         event.date
       );
-
       if (!dateEqual) {
         let batch = firestore.batch();
         batch.update(eventDocRef, event);
@@ -62,12 +58,10 @@ export const updateEvent = ({ firestore }, event) => {
             eventDate: event.date,
           });
         }
-
         await batch.commit();
       } else {
         await eventDocRef.update(event);
       }
-
       toastr.success("Success!", "Event has been updated");
       dispatch(asyncActionFinish());
     } catch (error) {
@@ -83,7 +77,6 @@ export const cancelToggle = ({ firestore }, cancelled, eventId) => async (
   const message = cancelled
     ? "Are you sure you want to cancel the event?"
     : "This will reactivate the event - are you sure?Ì";
-
   try {
     toastr.confirm(message, {
       onOk: () =>
@@ -105,7 +98,6 @@ export const getPagedEvents = ({ firestore }) => async (dispatch, getState) => {
       data: { events: items },
     },
   } = getState();
-
   if (items && Object.keys(items).length >= LIMIT) {
     let itemsArray = objectToArray(items);
     nextEventSnapshot = await firestore
@@ -126,7 +118,6 @@ export const getPagedEvents = ({ firestore }) => async (dispatch, getState) => {
   if (querySnap.docs.length < LIMIT) {
     dispatch({ type: MORE_EVENTS });
   }
-  
   dispatch(asyncActionFinish());
 };
 
@@ -146,7 +137,6 @@ export const addEventComment = (
     text: values.comment,
     date: Date.now(),
   };
-  
   try {
     await firebase.push(`event_chat/${eventId}`, newComment);
   } catch (error) {

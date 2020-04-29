@@ -10,7 +10,7 @@ import {
   createDataTree,
   objectToArray,
 } from "../../../utils/helpers";
-import EventDetailChatForm from "./EventDetailChatForm";
+import EventDetailChatForm from "./EventDetailChatFrom";
 
 const EventDetailChat = ({ eventId }) => {
   const [showReplyForm, setShowReplyForm] = useState(false);

@@ -1,16 +1,18 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { Segment, Button, Header, Icon } from "semantic-ui-react";
 
-const NotFound = ({ history }) => {
+const NotFound = () => {
+  const history = useHistory();
+
   return (
     <Segment placeholder>
       <Header icon>
         <Icon name="search" />
         Oops - we've looked everywhere but couldn't find this.
       </Header>
-      
+
       <Segment.Inline>
         <Button onClick={() => history.push("/events")} primary>
           Return to Events page
@@ -20,4 +22,4 @@ const NotFound = ({ history }) => {
   );
 };
 
-export default withRouter(NotFound);
+export default NotFound;

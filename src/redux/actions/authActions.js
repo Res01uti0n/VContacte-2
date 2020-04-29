@@ -23,18 +23,14 @@ export const registerUser = ({ firebase, firestore }, user) => async (
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password);
     console.log(createdUser);
-
     await createdUser.user.updateProfile({
       displayName: user.displayName,
     });
-
     let newUser = {
       displayName: user.displayName,
       createdAt: firestore.FieldValue.serverTimestamp(),
     };
-
     await firestore.set(`users/${createdUser.user.uid}`, { ...newUser });
-
     dispatch(closeModal());
   } catch (error) {
     console.log(error);
@@ -54,7 +50,6 @@ export const socialLogin = (
       provider: selectedProvider,
       type: "popup",
     });
-
     if (user.additionalUserInfo.isNewUser) {
       await firestore.set(`users/${user.user.uid}`, {
         displayName: user.profile.displayName,
@@ -69,7 +64,6 @@ export const socialLogin = (
 
 export const updatePassword = ({ firebase }, creds) => async (dispatch) => {
   const user = firebase.auth().currentUser;
-
   try {
     await user.updatePassword(creds.newPassword1);
     await dispatch(reset("account"));

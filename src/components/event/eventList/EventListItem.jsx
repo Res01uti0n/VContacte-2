@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { Item, Segment, Icon, List, Button, Label } from "semantic-ui-react";
 
 import EventListAttendee from "./EventListAttendee";
-import { objectToArray } from "../../../app/common/util/helpers";
+import { objectToArray } from "../../../utils/helpers";
 
 const EventListItem = ({ event }) => (
   <Segment.Group>

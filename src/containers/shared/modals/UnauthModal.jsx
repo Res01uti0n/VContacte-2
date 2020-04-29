@@ -1,13 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 import { Modal, Button, Divider } from "semantic-ui-react";
 
-import { closeModal, openModal } from "./modalActions";
+import { closeModal, openModal } from "../../../redux/actions/modalActions";
 
-const UnauthModal = ({ location, history }) => {
+const UnauthModal = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const history = useHistory();
 
   const handleCloseModal = () => {
     if (location.pathname.includes("/event")) {
@@ -46,7 +48,7 @@ const UnauthModal = ({ location, history }) => {
             </Button>
           </Button.Group>
           <Divider />
-          
+
           <div style={{ textAlign: "center" }}>
             <p>Or click cancel to continue as a guest</p>
             <Button onClick={handleCloseModal}>Cancel</Button>
@@ -57,4 +59,4 @@ const UnauthModal = ({ location, history }) => {
   );
 };
 
-export default withRouter(UnauthModal);
+export default UnauthModal;

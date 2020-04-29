@@ -1,5 +1,5 @@
-import { createReducer } from "../../app/common/util/reducerUtils";
-import { GET_USER_EVENTS } from "./userConstants";
+import { createReducer } from "../../utils/reducerUtils";
+import { GET_USER_EVENTS } from "../constants/userConstants";
 
 const initialState = {
   events: [],
