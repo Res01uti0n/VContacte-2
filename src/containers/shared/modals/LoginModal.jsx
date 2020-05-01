@@ -11,7 +11,7 @@ const LoginModal = () => {
 
   return (
     <Modal size="mini" open={true} onClose={() => dispatch(closeModal())}>
-      <Modal.Header>Login to Re-vents</Modal.Header>
+      <Modal.Header>Login to Vcontacte</Modal.Header>
       
       <Modal.Content>
         <Modal.Description>

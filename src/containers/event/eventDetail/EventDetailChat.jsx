@@ -4,7 +4,7 @@ import { useFirebaseConnect, isEmpty } from "react-redux-firebase";
 import { Link } from "react-router-dom";
 import { formatDistance } from "date-fns";
 
-import { Segment, Header, Comment } from "semantic-ui-react";
+import { Segment, Header, Comment, Icon } from "semantic-ui-react";
 
 import {
   createDataTree,
@@ -41,10 +41,13 @@ const EventDetailChat = ({ eventId }) => {
         textAlign="center"
         attached="top"
         inverted
-        color="teal"
+        color="green"
         style={{ border: "none" }}
       >
-        <Header>Chat about this event</Header>
+        <Header style={{ marginTop: 5 }}>
+          <Icon name="chat" />
+          Chat about this event
+        </Header>
       </Segment>
 
       <Segment attached>

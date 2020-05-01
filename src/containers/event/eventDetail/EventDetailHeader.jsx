@@ -72,7 +72,8 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
           <Label
             size="large"
             color="red"
-            content="This event has been cancelled"
+            icon="warning"
+            content="This event has been cancelled!"
           />
         )}
 

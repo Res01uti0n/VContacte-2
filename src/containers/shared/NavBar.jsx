@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink, Link, useHistory } from "react-router-dom";
 import { useFirebase } from "react-redux-firebase";
 
-import { Menu, Container, Button, Icon } from "semantic-ui-react";
+import { Menu, Container, Icon } from "semantic-ui-react";
 
 import SignedOutMenu from "./menu/SignedOutMenu";
 import SignedInMenu from "./menu/SignedInMenu";
@@ -25,39 +25,44 @@ const NavBar = () => {
   const authenticated = auth.isLoaded && !auth.isEmpty;
 
   return (
-    <Menu inverted fixed="top">
+    <Menu inverted tabular fixed="top">
       <Container>
         <Menu.Item as={Link} to="/" header>
           <img src="/assets/logo.svg" alt="logo" />
           Vcontacte Alpha
         </Menu.Item>
 
-        <Menu.Item as={NavLink} exact to="/events" name="Events" />
+        <Menu.Item
+          as={NavLink}
+          exact
+          icon="calendar"
+          to="/events"
+          name="Events"
+        />
 
         {authenticated && (
           <>
-            <Menu.Item as={NavLink} to="/test" name="Test" />
-            <Menu.Item as={NavLink} to="/people" name="People" />
-            <Menu.Item>
-              <Button
-                as={Link}
-                to="/createEvent"
-                floated="right"
-                positive
-                inverted
-                content="Create Event"
-              />
-            </Menu.Item>
+            <Menu.Item icon="users" as={NavLink} to="/people" name="People" />
+            <Menu.Item
+              icon="add"
+              as={NavLink}
+              to="/createEvent"
+              name="Create Event"
+            />
           </>
         )}
 
-        <Menu.Item position={"right"} as="a" href="" target={"_blank"}>
-          Report a Bug
+        <Menu.Item
+          as="a"
+          href="https://github.com/Res01uti0n"
+          target={"_blank"}
+        >
           <Icon
             name={"bug"}
             size={"large"}
             style={{ marginLeft: 5, color: "orange" }}
           />
+          Report a Bug
         </Menu.Item>
 
         {authenticated ? (

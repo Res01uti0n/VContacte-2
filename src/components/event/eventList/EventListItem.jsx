@@ -29,7 +29,8 @@ const EventListItem = ({ event }) => (
                 style={{ top: "-40px" }}
                 ribbon="right"
                 color="red"
-                content="This event has been cancelled"
+                icon="warning"
+                content="This event has been cancelled!"
               />
             )}
           </Item.Content>
@@ -39,10 +40,11 @@ const EventListItem = ({ event }) => (
 
     <Segment>
       <span>
-        <Icon name="clock" />{" "}
+        <Icon color="green" inverted name="clock" />{" "}
         {format(event.date && event.date.toDate(), "EEEE do LLLL")} at{" "}
-        {format(event.date && event.date.toDate(), "HH:mm")} |
-        <Icon name="marker" /> {event.venue}
+        {format(event.date && event.date.toDate(), "HH:mm")}
+        <br />
+        <Icon color="green" inverted name="marker" /> {event.venue}
       </span>
     </Segment>
 
@@ -61,7 +63,8 @@ const EventListItem = ({ event }) => (
       <Button
         as={Link}
         to={`/events/${event.id}`}
-        color="teal"
+        color="green"
+        icon="eye"
         floated="right"
         content="View"
       />

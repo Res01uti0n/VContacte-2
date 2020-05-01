@@ -51,11 +51,16 @@ const LoginForm = ({ handleSubmit, error, submitting }) => {
           </Label>
         )}
 
-        <Button loading={submitting} fluid size="large" color="teal">
+        <Button
+          loading={submitting}
+          fluid
+          size="large"
+          color="green"
+        >
           Login
         </Button>
         <Divider horizontal>Or</Divider>
-        
+
         <SocialLogin socialLogin={handleSocialLogin} />
       </Segment>
     </Form>

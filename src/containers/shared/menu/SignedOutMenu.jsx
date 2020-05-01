@@ -14,13 +14,17 @@ const SignedOutMenu = () => {
         onClick={() => dispatch(openModal("LoginModal"))}
         basic
         inverted
+        color="yellow"
+        icon="sign-in"
         content="Login"
       />
-      
+
       <Button
         onClick={() => dispatch(openModal("RegisterModal"))}
         basic
         inverted
+        color="yellow"
+        icon="signup"
         content="Register"
         style={{ marginLeft: "0.5em" }}
       />

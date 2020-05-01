@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Menu, Dropdown, Image } from "semantic-ui-react";
+import { Menu, Dropdown, Image, Divider } from "semantic-ui-react";
 
 const SignedInMenu = ({ signOut }) => {
   const profile = useSelector((state) => state.firebase.profile, []);
@@ -16,17 +16,32 @@ const SignedInMenu = ({ signOut }) => {
         src={profile.photoURL || "/assets/user.png"}
       />
 
-      <Dropdown pointing="top left" text={profile.displayName}>
+      <Dropdown pointing="top right" text={profile.displayName}>
         <Dropdown.Menu>
-          <Dropdown.Item text="Create Event" icon="plus" />
-          <Dropdown.Item text="My Events" icon="calendar" />
-          <Dropdown.Item text="My Network" icon="users" />
+          <Divider fitted />
+          <Dropdown.Item
+            text="Create Event"
+            as={Link}
+            to="/createEvent"
+            icon="plus"
+          />
+          <Divider fitted />
+
+          <Dropdown.Item
+            text="My Network"
+            as={Link}
+            to="/people"
+            icon="users"
+          />
+          <Divider fitted />
+
           <Dropdown.Item
             as={Link}
             to={`/profile/${auth.uid}`}
             text="My Profile"
             icon="user"
           />
+          <Divider fitted />
 
           <Dropdown.Item
             as={Link}
@@ -34,7 +49,9 @@ const SignedInMenu = ({ signOut }) => {
             text="Settings"
             icon="settings"
           />
+          <Divider fitted />
           <Dropdown.Item onClick={signOut} text="Sign Out" icon="power" />
+          <Divider fitted />
         </Dropdown.Menu>
       </Dropdown>
     </Menu.Item>

@@ -50,7 +50,7 @@ const RegisterForm = ({ handleSubmit }) => {
             placeholder="Password"
           />
           
-          <Button fluid size="large" color="teal">
+          <Button fluid size="large" color="green">
             Register
           </Button>
         </Segment>

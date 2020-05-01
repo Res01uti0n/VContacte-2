@@ -1,29 +1,27 @@
 import React from "react";
 
-import { Button, Icon } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 
 const SocialLogin = ({ socialLogin }) => {
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <Button
-        onClick={() => socialLogin("facebook")}
+        onClick={() => socialLogin("github")}
         type="button"
-        style={{ marginBottom: "10px" }}
-        fluid
-        color="facebook"
-      >
-        <Icon name="facebook" /> Login with Facebook
-      </Button>
+        circular
+        color="black"
+        icon="github"
+        size="big"
+      />
 
       <Button
         onClick={() => socialLogin("google")}
         type="button"
-        fluid
+        circular
         color="google plus"
-      >
-        <Icon name="google plus" />
-        Login with Google
-      </Button>
+        icon="google plus"
+        size="big"
+      />
     </div>
   );
 };

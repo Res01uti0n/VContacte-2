@@ -11,7 +11,7 @@ export default function RegisterModal() {
 
   return (
     <Modal size="mini" open={true} onClose={() => dispatch(closeModal)}>
-      <Modal.Header>Sign Up to Re-vents!</Modal.Header>
+      <Modal.Header>Sign Up to Vcontacte!</Modal.Header>
 
       <Modal.Content>
         <Modal.Description>

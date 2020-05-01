@@ -18,7 +18,11 @@ import {
 
 import { Form, Segment, Button, Grid, Header } from "semantic-ui-react";
 
-import { createEvent, updateEvent, cancelToggle } from "../../redux/actions/eventActions";
+import {
+  createEvent,
+  updateEvent,
+  cancelToggle,
+} from "../../redux/actions/eventActions";
 import TextInput from "../../utils/form/TextInput";
 import TextArea from "../../utils/form/TextArea";
 import SelectInput from "../../utils/form/SelectInput";
@@ -115,9 +119,14 @@ const EventForm = ({
 
   return (
     <Grid>
-      <Grid.Column width={10}>
+      <Grid.Column width={16}>
         <Segment>
-          <Header sub color="teal" content="Event Details" />
+          <Header
+            sub
+            color="green"
+            textAlign="center"
+            content="Event Details"
+          />
 
           <Form onSubmit={handleSubmit(handleFormSubmit)}>
             <Field
@@ -143,13 +152,18 @@ const EventForm = ({
               placeholder="Tell us about your event"
             />
 
-            <Header sub color="teal" content="Event location details" />
+            <Header
+              sub
+              color="green"
+              textAlign="center"
+              content="Event location details"
+            />
 
             <Field
               name="city"
               type="text"
               component={PlaceInput}
-              options={{ typs: ["(cities)"] }}
+              options={{ types: ["(cities)"] }}
               placeholder="Event city"
               onSelect={handleCitySelect}
             />
@@ -181,13 +195,17 @@ const EventForm = ({
               disabled={invalid || submitting || pristine}
               positive
               type="submit"
-            >
-              Submit
-            </Button>
+              content="Create"
+              icon="add"
+            />
 
-            <Button onClick={history.goBack} type="button">
-              Cancel
-            </Button>
+            <Button
+              icon="redo"
+              color="black"
+              onClick={history.goBack}
+              type="button"
+              content="Back"
+            />
 
             <Button
               onClick={() =>
@@ -197,6 +215,7 @@ const EventForm = ({
               }
               type="button"
               floated="right"
+              icon="cancel"
               color={event.cancelled ? "green" : "red"}
               content={event.cancelled ? "Reactivate event" : "Cancel event"}
             />

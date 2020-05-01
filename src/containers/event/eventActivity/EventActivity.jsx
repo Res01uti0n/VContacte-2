@@ -2,7 +2,14 @@ import React, { useCallback, useMemo } from "react";
 import { useFirestoreConnect } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 
-import { Header, Segment, Feed, Sticky } from "semantic-ui-react";
+import {
+  Header,
+  Segment,
+  Feed,
+  Sticky,
+  Icon,
+  Divider,
+} from "semantic-ui-react";
 
 import EventActivityItem from "../../../components/event/eventActivity/EventActivityItem";
 
@@ -28,13 +35,19 @@ const EventActivity = ({ contextRef }) => {
 
   return (
     <Sticky context={contextRef} offset={100} styleElement={{ zIndex: 0 }}>
-      <Header attached="top" content="Recent Activity" />
+      <Header attached="top" textAlign="center" icon as="h3">
+        <Icon color="yellow" inverted name="newspaper" />
+        <Header.Content>Recent Activity</Header.Content>
+      </Header>
 
       <Segment attached>
         <Feed>
           {activities &&
             activities.map((activity) => (
-              <EventActivityItem key={activity.id} activity={activity} />
+              <>
+                <EventActivityItem key={activity.id} activity={activity} />
+                <Divider />
+              </>
             ))}
         </Feed>
       </Segment>
