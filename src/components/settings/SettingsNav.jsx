@@ -7,7 +7,7 @@ const SettingsNav = () => {
   return (
     <Grid.Column width={4}>
       <Menu vertical>
-        <Header icon="user" attached inverted color="grey" content="Profile" />
+        <Header icon="user" attached inverted color="green" content="Profile" />
 
         <Menu.Item as={NavLink} to="/settings/basic">
           Main
@@ -29,7 +29,7 @@ const SettingsNav = () => {
           icon="settings"
           attached
           inverted
-          color="grey"
+          color="green"
           content="Account"
         />
         

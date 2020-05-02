@@ -13,7 +13,7 @@ const EventDetailInfo = ({ event }) => {
       <Segment attached="top">
         <Grid>
           <Grid.Column width={1}>
-            <Icon size="large" color="teal" name="info" />
+            <Icon size="large" color="green" name="info" />
           </Grid.Column>
 
           <Grid.Column width={15}>
@@ -25,7 +25,7 @@ const EventDetailInfo = ({ event }) => {
       <Segment attached>
         <Grid verticalAlign="middle">
           <Grid.Column width={1}>
-            <Icon name="calendar" size="large" color="teal" />
+            <Icon name="calendar" size="large" color="green" />
           </Grid.Column>
 
           <Grid.Column width={15}>
@@ -42,7 +42,7 @@ const EventDetailInfo = ({ event }) => {
       <Segment attached>
         <Grid verticalAlign="middle">
           <Grid.Column width={1}>
-            <Icon name="marker" size="large" color="teal" />
+            <Icon name="marker" size="large" color="green" />
           </Grid.Column>
 
           <Grid.Column width={11}>
@@ -52,8 +52,9 @@ const EventDetailInfo = ({ event }) => {
           <Grid.Column width={4}>
             <Button
               onClick={() => setShowMap(!showMap)}
-              color="teal"
+              color="green"
               size="tiny"
+              icon="map"
               content={showMap ? "Hide Map" : "Show Map"}
             />
           </Grid.Column>

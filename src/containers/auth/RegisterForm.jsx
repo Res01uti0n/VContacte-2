@@ -50,9 +50,7 @@ const RegisterForm = ({ handleSubmit }) => {
             placeholder="Password"
           />
           
-          <Button fluid size="large" color="green">
-            Register
-          </Button>
+          <Button fluid size="large" icon="signup" content="Register" color="green" />
         </Segment>
       </Form>
     </div>

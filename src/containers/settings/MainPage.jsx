@@ -25,7 +25,7 @@ const MainPage = ({ pristine, submitting, handleSubmit }) => {
 
   return (
     <Segment>
-      <Header dividing size="large" content="Basics" />
+      <Header dividing size="large" textAlign="center" content="Main" />
 
       <Form onSubmit={handleSubmit(handleUpdateProfile)}>
         <Field
@@ -71,7 +71,6 @@ const MainPage = ({ pristine, submitting, handleSubmit }) => {
           name="city"
           placeholder="Home Town"
           options={{ types: ["(cities)"] }}
-          label="Female"
           component={PlaceInput}
           width={8}
         />
@@ -82,6 +81,7 @@ const MainPage = ({ pristine, submitting, handleSubmit }) => {
           size="large"
           positive
           content="Update Profile"
+          icon="edit"
         />
       </Form>
     </Segment>

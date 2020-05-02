@@ -22,7 +22,7 @@ const EventActivityItem = ({ activity }) => {
 
             is hosting{" "}
             
-            <Link to={{ pathname: "/event/" + activity.eventId }}>
+            <Link to={{ pathname: "/events/" + activity.eventId }}>
               {activity.title}
             </Link>
           </div>
@@ -41,7 +41,7 @@ const EventActivityItem = ({ activity }) => {
 
             has cancelled{" "}
             
-            <Link to={{ pathname: "/event/" + activity.eventId }}>
+            <Link to={{ pathname: "/events/" + activity.eventId }}>
               {activity.title}
             </Link>
           </div>

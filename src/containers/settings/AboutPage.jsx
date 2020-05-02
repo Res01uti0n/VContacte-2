@@ -34,7 +34,7 @@ const AboutPage = ({ pristine, submitting, handleSubmit }) => {
 
   return (
     <Segment>
-      <Header dividing size="large" content="About Me" />
+      <Header dividing size="large" textAlign="center" content="About Me" />
 
       <p>Complete your profile to get the most out of this site</p>
 
@@ -102,6 +102,7 @@ const AboutPage = ({ pristine, submitting, handleSubmit }) => {
           size="large"
           positive
           content="Update Profile"
+          icon="edit"
         />
       </Form>
     </Segment>

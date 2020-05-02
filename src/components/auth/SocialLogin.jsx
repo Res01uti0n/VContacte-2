@@ -12,6 +12,7 @@ const SocialLogin = ({ socialLogin }) => {
         color="black"
         icon="github"
         size="big"
+        disabled
       />
 
       <Button

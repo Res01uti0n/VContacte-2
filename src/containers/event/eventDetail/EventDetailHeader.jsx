@@ -54,7 +54,6 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
 
                 <p>
                   Hosted by{" "}
-
                   <strong>
                     <Link to={`/profile/${event.hostUid}`}>
                       {event.hostedBy}
@@ -95,7 +94,7 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
                 onClick={() =>
                   dispatch(goingToEvent({ firebase, firestore }, event))
                 }
-                color="teal"
+                color="green"
               >
                 JOIN THIS EVENT
               </Button>
@@ -105,7 +104,7 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
               <Button
                 loading={loading}
                 onClick={() => dispatch(openModal("UnauthModal"))}
-                color="teal"
+                color="green"
               >
                 JOIN THIS EVENT
               </Button>
@@ -117,11 +116,12 @@ const EventDetailHeader = ({ event, isHost, isGoing, authenticated }) => {
           <Button
             as={Link}
             to={`/manage/${event.id}`}
-            color="orange"
+            color="yellow"
+            inverted
             floated="right"
-          >
-            Manage Event
-          </Button>
+            icon="edit"
+            content="Manage Event"
+          />
         )}
       </Segment>
     </Segment.Group>

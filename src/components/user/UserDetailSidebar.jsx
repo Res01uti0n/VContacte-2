@@ -11,18 +11,20 @@ const UserDetailSidebar = ({ isCurrentUser }) => {
           <Button
             as={Link}
             to="/settings"
-            color="teal"
+            color="green"
             fluid
             basic
             content="Edit Profile"
+            icon="edit"
           />
         ) : (
           <Button
             to="/settings"
-            color="teal"
+            color="green"
             fluid
             basic
             content="Follow User"
+            icon="eye"
           />
         )}
       </Segment>

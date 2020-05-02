@@ -6,7 +6,7 @@ import "firebase/auth"
 import "firebase/storage"
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "KEY",
   authDomain: "vcontacte-2.firebaseapp.com",
   databaseURL: "https://vcontacte-2.firebaseio.com",
   projectId: "vcontacte-2",

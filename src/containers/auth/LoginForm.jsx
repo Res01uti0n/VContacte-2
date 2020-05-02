@@ -56,9 +56,9 @@ const LoginForm = ({ handleSubmit, error, submitting }) => {
           fluid
           size="large"
           color="green"
-        >
-          Login
-        </Button>
+          content="Login"
+          icon="sign-in"
+        />
         <Divider horizontal>Or</Divider>
 
         <SocialLogin socialLogin={handleSocialLogin} />

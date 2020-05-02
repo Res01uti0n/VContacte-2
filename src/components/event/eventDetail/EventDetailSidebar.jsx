@@ -12,7 +12,7 @@ const EventDetailSidebar = ({ attendees }) => {
         attached="top"
         secondary
         inverted
-        color="teal"
+        color="green"
       >
         {attendees && attendees.length}{" "}
         {attendees && attendees.length === 1 ? "Person" : "People"} going
@@ -26,11 +26,11 @@ const EventDetailSidebar = ({ attendees }) => {
                 {attendee.host && (
                   <Label
                     style={{ position: "absolute" }}
-                    color="orange"
+                    color="green"
                     ribbon="right"
-                  >
-                    Host
-                  </Label>
+                    icon="user"
+                    content="Host"
+                  />
                 )}
 
                 <Item.Image size="tiny" src={attendee.photoURL} />

@@ -31,7 +31,7 @@ const UnauthModal = () => {
           <Button.Group widths={4}>
             <Button
               fluid
-              color="teal"
+              color="green"
               onClick={() => dispatch(openModal("LoginModal"))}
             >
               Login
