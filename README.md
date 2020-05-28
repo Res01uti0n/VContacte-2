@@ -45,7 +45,7 @@ yarn@v1.21.1 or higher
 
 ## How To Use 🔧
 
-From your command line, first clone E-commerce crwn app ⚡️:
+From your command line, first clone Vcontacte app ⚡️:
 
 ```bash
 # Clone this repository
