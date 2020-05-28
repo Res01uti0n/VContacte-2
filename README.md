@@ -1,68 +1,108 @@
+# [Vcontacte ⚡️](https://vcontacte-2.web.app/) 
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
+## Introduction 🔈
+
+It`s a social media application with rudimentary features inspired by existing social media platform Twitter.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Features ⚡️
 
-In the project directory, you can run:
+⚡️ Modern UI Design\
+⚡️ Styled with Semantic-ui\
+⚡️ Valid HTML5 & CSS3\
+⚡️ Created with React + Redux\
+⚡️ Google api\
+⚡️ Well organized documentation
 
-### `yarn start`
+**Browser** Support 🎉
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+---- | --- | --- | --- | --- |
+Chrome ✔ | Opera ✔ | Edge ✔ | Firefox ✔  | Safari ✔
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Getting Started 🚀
 
-### `yarn test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites 📋
 
-### `yarn build`
+You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [NPM](http://npmjs.com)) installed on your computer.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+node@v10.16.0 or higher
+npm@6.9.0 or higher
+git@2.17.1 or higher
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Also, you can use [Yarn](https://yarnpkg.com/) instead of NPM ☝️
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn@v1.21.1 or higher
+```
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How To Use 🔧
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+From your command line, first clone E-commerce crwn app ⚡️:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+# Clone this repository
+$ git clone https://github.com/Res01uti0n/VContacte-social-app
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Go into the repository
+$ cd VContacte-social-app
 
-## Learn More
+# Remove current origin repository
+$ git remote remove origin
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Then you can install the dependencies either using NPM or Yarn:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Using NPM:
+```bash
+# Install dependencies
+$ npm install
 
-### Code Splitting
+# Start development server
+$ npm start
+```
+Using Yarn:
+```bash
+# Install dependencies
+$ yarn
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Start development server
+$ yarn start
+```
 
-### Analyzing the Bundle Size
+**NOTE**:
+You need also to connect Firebase.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+and type in browser [http://localhost:3000](http://localhost:3000)
 
-### Making a Progressive Web App
+## Technologies used 🛠️
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Code technologies I got involved with while working on this project.
 
-### Advanced Configuration
+### Backend side 💽
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+1. [**Firebase**](https://www.djangoproject.com/)
 
-### Deployment
+### Frontend side 💻
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+1. [**React**](https://ru.reactjs.org/)
+1. [**Redux**](https://redux.js.org/)
+1. [**Redux-thunk**](https://github.com/reduxjs/redux-thunk)
+1. [**React-router**](https://reacttraining.com/react-router/core/guides/quick-start)
+1. [**Semantic-ui-react**](https://react.semantic-ui.com/)
 
-### `yarn build` fails to minify
+### Deploy 📦
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[**Firebase**](https://dashboard.heroku.com/apps)
+
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
